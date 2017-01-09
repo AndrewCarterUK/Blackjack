@@ -22,7 +22,7 @@ void blackjack_run_simulations(
 void blackjack_shuffle_cards(blackjack_card_t *cards, int length);
 ```
 
-## Usage Example
+## Code Example
 
 ```C
 #include <stdio.h>
@@ -75,3 +75,22 @@ int main(int argc, char *argv[])
     return 0;
 }
 ```
+
+Output:
+
+```
+Hit Results:
+	Win Probability:         18%
+	Lose Probability:        78%
+	Draw Probablity:         4%
+	Bust Probability:        40%
+	Dealer Bust Probability: 12%
+
+Stand Results:
+	Win Probability:         21%
+	Lose Probability:        79%
+	Draw Probablity:         0%
+	Dealer Bust Probability: 21%
+```
+
+For further examples, please see the [examples](examples) directory in the repository.
