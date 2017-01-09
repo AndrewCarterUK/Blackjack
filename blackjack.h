@@ -11,8 +11,8 @@
 typedef int blackjack_card_t;
 
 typedef struct blackjack_simulation_results_t_ {
-    int stick_wins, stick_loses, stick_dealer_bust, stick_draws;
-    int twist_wins, twist_loses, twist_bust, twist_dealer_bust, twist_draws;
+    int stand_wins, stand_loses, stand_dealer_bust, stand_draws;
+    int hit_wins, hit_loses, hit_bust, hit_dealer_bust, hit_draws;
 } blackjack_simulation_results_t;
 
 void blackjack_shuffle_cards(

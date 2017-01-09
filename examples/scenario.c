@@ -28,21 +28,21 @@ int main(int argc, char *argv[])
 
     // Print the results
     printf(
-        "Twist Results:\n"
+        "Hit Results:\n"
             "\tWin Probability:         %d%%\n"
             "\tLose Probability:        %d%%\n"
             "\tDraw Probablity:         %d%%\n"
             "\tBust Probability:        %d%%\n"
             "\tDealer Bust Probability: %d%%\n"
         "\n"
-        "Stick Results:\n"
+        "Stand Results:\n"
             "\tWin Probability:         %d%%\n"
             "\tLose Probability:        %d%%\n"
             "\tDraw Probablity:         %d%%\n"
             "\tDealer Bust Probability: %d%%\n"
         "\n",
-        results.twist_wins, results.twist_loses, results.twist_draws, results.twist_bust, results.twist_dealer_bust,
-        results.stick_wins, results.stick_loses, results.stick_draws, results.stick_dealer_bust
+        results.hit_wins, results.hit_loses, results.hit_draws, results.hit_bust, results.hit_dealer_bust,
+        results.stand_wins, results.stand_loses, results.stand_draws, results.stand_dealer_bust
     );
 
     return 0;

@@ -85,7 +85,7 @@ void blackjack_simulate_dealer(
     }
 }
 
-blackjack_result_t blackjack_simulate_stick(
+blackjack_result_t blackjack_simulate_stand(
     blackjack_card_t *deck, int deck_length,
     blackjack_card_t *hand, int hand_length,
     blackjack_card_t dealer_card
@@ -100,7 +100,7 @@ blackjack_result_t blackjack_simulate_stick(
     return blackjack_get_result(hand, hand_length, dealer_hand, dealer_hand_length);
 }
 
-blackjack_result_t blackjack_simulate_twist(
+blackjack_result_t blackjack_simulate_hit(
     blackjack_card_t *deck, int deck_length,
     blackjack_card_t *hand, int hand_length,
     blackjack_card_t dealer_card
@@ -152,24 +152,24 @@ void blackjack_run_simulations(
     while (simulations--) {
         blackjack_shuffle_cards(deck, deck_length);
 
-        result = blackjack_simulate_stick(deck, deck_length, hand, hand_length, dealer_card);
+        result = blackjack_simulate_stand(deck, deck_length, hand, hand_length, dealer_card);
 
         switch (result) {
-            case BLACKJACK_DEALER_BUST: results->stick_dealer_bust++; // fall through
-            case BLACKJACK_WIN: results->stick_wins++; break;
-            case BLACKJACK_DRAW: results->stick_draws++; break;
+            case BLACKJACK_DEALER_BUST: results->stand_dealer_bust++; // fall through
+            case BLACKJACK_WIN: results->stand_wins++; break;
+            case BLACKJACK_DRAW: results->stand_draws++; break;
             case BLACKJACK_PLAYER_BUST: // shouldn't happen, fall through
-            case BLACKJACK_LOSE: results->stick_loses++; break;
+            case BLACKJACK_LOSE: results->stand_loses++; break;
         }
 
-        result = blackjack_simulate_twist(deck, deck_length, hand, hand_length, dealer_card);
+        result = blackjack_simulate_hit(deck, deck_length, hand, hand_length, dealer_card);
 
         switch (result) {
-            case BLACKJACK_DEALER_BUST: results->twist_dealer_bust++; // fall through
-            case BLACKJACK_WIN: results->twist_wins++; break;
-            case BLACKJACK_DRAW: results->twist_draws++; break;
-            case BLACKJACK_PLAYER_BUST: results->twist_bust++; // fall through
-            case BLACKJACK_LOSE: results->twist_loses++; break;
+            case BLACKJACK_DEALER_BUST: results->hit_dealer_bust++; // fall through
+            case BLACKJACK_WIN: results->hit_wins++; break;
+            case BLACKJACK_DRAW: results->hit_draws++; break;
+            case BLACKJACK_PLAYER_BUST: results->hit_bust++; // fall through
+            case BLACKJACK_LOSE: results->hit_loses++; break;
         }
     }
 }
